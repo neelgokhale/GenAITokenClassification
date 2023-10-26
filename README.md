@@ -1,5 +1,7 @@
 # Generative AI-Powered Token Classification Application with DistilBERT
 
+![App](/img/appview.png)
+
 This GitHub repository contains a Generative AI-powered application that uses an open-source language model (LLM) called DistilBERT, fine-tuned with the WNUT 17 database to perform Token Classification using Named Entity Recognition (NER). The repository also includes a Streamlit application that serves users who want to classify text they enter. Users can input text in a text box and click "Generate" to view the annotated output.
 
 ## Table of Contents
