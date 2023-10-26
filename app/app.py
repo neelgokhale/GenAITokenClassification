@@ -18,8 +18,8 @@ from utils import *
 
 # SESSION STATE DECLARATIONS
 
-if 'annot_text' not in st.session_state:
-    st.session_state['annot_text'] = ''
+if 'annot_tuple' not in st.session_state:
+    st.session_state['annot_tuple'] = ''
 
 # TITLE
 
@@ -66,15 +66,17 @@ with st.container():
                 model=radio_model
             )
 
-            annot_tuple = get_annotated_classification(
+            annotations = get_annotated_classification(
                 input_text=input_text,
                 labels=pred_labels
             )
+
+            st.session_state['annot_tuple'] = annotations
             
 
 # OUTPUT CONTAINER
 with st.container():
     with st.expander("Input Text"):
         annotated_text(
-            annot_tuple
+            st.session_state['annot_tuple']
         )

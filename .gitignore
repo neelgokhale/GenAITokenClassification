@@ -5,6 +5,7 @@ __pycache__/
 
 # Test python files
 test.py
+config_snapshot.txt
 
 # C extensions
 *.so

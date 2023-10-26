@@ -28,7 +28,7 @@ def get_classification(input_text: str, model: str=MODELS[0]):
     model_id = HUGGINGFACE_USER + "/" + model
 
     # load tokenizer and generated tokenized list of response
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    tokenizer = AutoTokenizer.from_pretrained(model_id, aggregation_strategy="simple")
     input_tokens = tokenizer(input_text, return_tensors="pt")
 
     # load model
@@ -40,6 +40,12 @@ def get_classification(input_text: str, model: str=MODELS[0]):
     preds = torch.argmax(logits, dim=2)
     pred_labels = [model.config.id2label[t.item()] for t in preds[0]]
 
+    # test classifier pipeline
+
+    classifier = pipeline("ner", model=model_id)
+    print(classifier(input_text))
+    print(pred_labels)
+
     return pred_labels
 
 
@@ -47,7 +53,9 @@ def get_annotated_classification(input_text: str, labels: list):
     
     annot_tuple = []
     for txt, lbl in zip(input_text.split(" "), labels):
-        annot_tuple.append((txt + " ", lbl))
+        print((txt, lbl))
+        tup = txt + " " if lbl == "O" else (txt + " ", lbl)
+        annot_tuple.append(tup)
 
     return annot_tuple
 
