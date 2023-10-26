@@ -76,7 +76,7 @@ with st.container():
 
 # OUTPUT CONTAINER
 with st.container():
-    with st.expander("Input Text"):
+    with st.expander("Generated Text"):
         annotated_text(
             st.session_state['annot_tuple']
         )
