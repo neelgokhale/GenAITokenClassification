@@ -45,7 +45,7 @@ This structured organization makes it easier to navigate the repository and loca
 
 The raw [DistilBERT model](https://huggingface.co/distilbert-base-uncased) was trainined on the [WNUT 17](https://huggingface.co/datasets/wnut_17) database. A Jupyter notebook ([training_distilbert_wnut.ipynb](/training_distilbert_wnut.ipynb)) was setup to train the model. Make sure the required dependencies have been installed before running the notebook.
 
-| The trained model can also be accessed on my huggingface repo: [neelgokhale/distilbert-finetuned-ner](https://huggingface.co/neelgokhale/distilbert-finetuned-ner)
+> The trained model can also be accessed on my huggingface repo: [`neelgokhale/distilbert-finetuned-ner`](https://huggingface.co/neelgokhale/distilbert-finetuned-ner)
 
 ## Contributing
 
